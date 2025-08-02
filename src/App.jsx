@@ -16,9 +16,9 @@ function getCommentsById(commentsId) {
   );
 }
 
-function getPostsById(postsId) {
-  return postsFromServer.find(posts => posts.id === postsId) || null;
-}
+// function getPostsById(postsId) {
+//   return postsFromServer.find(posts => posts.id === postsId) || null;
+// }
 
 const posts = postsFromServer.map(post => ({
   ...post,
@@ -26,11 +26,11 @@ const posts = postsFromServer.map(post => ({
   comments: getCommentsById(post.id),
 }));
 
-const comments = commentsFromServer.map(comment => ({
-  ...comment,
-  post: getPostsById(comment.postId),
-  comments: getCommentsById(post.id),
-}));
+// const comments = commentsFromServer.map(comment => ({
+//   ...comment,
+//   post: getPostsById(comment.postId),
+//   comments: getCommentsById(post.id),
+// }));
 
 export const App = () => (
   <section className="App">

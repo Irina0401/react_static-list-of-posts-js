@@ -6,6 +6,5 @@ export const CommentList = ({ comments }) => (
     {comments.map(comment => (
       <CommentInfo key={comment.id} comment={comment} />
     ))}
-    ;
   </div>
 );

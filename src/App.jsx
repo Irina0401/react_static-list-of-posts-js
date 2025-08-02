@@ -10,10 +10,8 @@ function getUserById(userId) {
   return usersFromServer.find(user => user.id === userId) || null;
 }
 
-function getCommentsById(commentsId) {
-  return (
-    commentsFromServer.find(comments => comments.id === commentsId) || null
-  );
+function getCommentsByPostId(postId) {
+  return commentsFromServer.filter(comment => comment.postId === postId);
 }
 
 // function getPostsById(postsId) {
@@ -23,7 +21,7 @@ function getCommentsById(commentsId) {
 const posts = postsFromServer.map(post => ({
   ...post,
   user: getUserById(post.userId),
-  comments: getCommentsById(post.id),
+  comments: getCommentsByPostId(post.id),
 }));
 
 // const comments = commentsFromServer.map(comment => ({
